@@ -1,0 +1,18 @@
+.SignUpForm{
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    input, button{
+        display: block;
+    }
+}
+.errorDiv{
+    background-color: #f7fafc;
+    border-radius: 0 0 10px 10px;
+    padding: .75rem .25rem .25rem .25rem;
+    color: #2d3748;
+    position: relative;
+    z-index: -100;
+    top: -.5rem;
+}
