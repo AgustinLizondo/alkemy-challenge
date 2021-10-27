@@ -1,5 +1,7 @@
+@charset "UTF-8";
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
   text-rendering: optimizeLegibility;
@@ -10,9 +12,7 @@
 
 html {
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
-    "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
   margin: 0;
   padding: 0;
   text-decoration-skip-ink: "auto";
@@ -55,7 +55,6 @@ html {
 
 body {
   padding: 0;
-  margin: calc((100vh / 25) * 1.563) calc((100vw / 25) * 1.563);
   background-color: white;
   font-weight: 400;
   line-height: 1.563;
@@ -73,63 +72,81 @@ body {
 
 /* Typography
   ––––––––––––––––––––––––––––––––– */
+.SignUpForm {
+  /* Form
+  ––––––––––––––––––––––––––––––––– */
+  /* Tables
+  ––––––––––––––––––––––––––––––––– */
+  /* Code
+  ––––––––––––––––––––––––––––––––– */
+  /* Forces a new-line at the end of a code block for layout purposes. */
+  /* Blockquote
+  ––––––––––––––––––––––––––––––––– */
+  /* List
+  ––––––––––––––––––––––––––––––––– */
+  /* Keyboard
+  ––––––––––––––––––––––––––––––––– */
+  /* Abbreviation
+  ––––––––––––––––––––––––––––––––– */
+  /* custom */
+}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.SignUpForm h1,
+.SignUpForm h2,
+.SignUpForm h3,
+.SignUpForm h4,
+.SignUpForm h5,
+.SignUpForm h6 {
   margin-bottom: 1rem;
-  margin-top: 1em;
+  margin-top: 1rem;
   font-weight: bold;
 }
 
-h1 {
+.SignUpForm h1 {
   font-size: 3.052rem;
   letter-spacing: -0.15rem;
   line-height: 1;
 }
 
-h2 {
+.SignUpForm h2 {
   font-size: 2.441rem;
   letter-spacing: -0.12rem;
   line-height: 1.2;
 }
 
-h3 {
+.SignUpForm h3 {
   font-size: 1.953rem;
   letter-spacing: -0.09rem;
   line-height: 1.2;
 }
 
-h4 {
+.SignUpForm h4 {
   font-size: 1.563rem;
   letter-spacing: -0.06rem;
   line-height: 1.3;
 }
 
-h5 {
+.SignUpForm h5 {
   font-size: 1.25rem;
   letter-spacing: -0.03rem;
   line-height: 1.4;
 }
 
-h6 {
+.SignUpForm h6 {
   font-size: 1rem;
   letter-spacing: 0;
   line-height: 1.5;
 }
 
-p {
+.SignUpForm p {
   margin-bottom: 1.563rem;
 }
 
-p > *:last-child {
+.SignUpForm p > *:last-child {
   margin-bottom: 0;
 }
 
-a {
+.SignUpForm a {
   color: inherit;
   text-decoration: underline;
   text-decoration-color: var(--text-decoration-color);
@@ -140,49 +157,52 @@ a {
 }
 
 @media (hover: hover) {
-  a:hover {
-    text-decoration-color: var(--gray-800);
+  .SignUpForm a:hover {
+    -webkit-text-decoration-color: var(--gray-800);
+            text-decoration-color: var(--gray-800);
   }
 }
 
 @media (hover: hover) and (prefers-color-scheme: dark) {
-  a:hover {
-    text-decoration-color: white;
+  .SignUpForm a:hover {
+    -webkit-text-decoration-color: white;
+            text-decoration-color: white;
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  a {
+  .SignUpForm a {
     text-decoration-color: var(--gray-700);
     -webkit-text-decoration-color: var(--gray-700);
   }
 }
 
-a:focus-visible {
-  box-shadow: 0 0 0 2px var(--focus-ring-color);
+.SignUpForm a:focus-visible {
+  -webkit-box-shadow: 0 0 0 2px var(--focus-ring-color);
+          box-shadow: 0 0 0 2px var(--focus-ring-color);
   outline: none;
 }
 
-small {
+.SignUpForm small {
   font-size: 0.888rem;
 }
 
-hr {
+.SignUpForm hr {
   border: 1px solid var(--gray-700);
   margin: 3.052rem 0;
 }
 
-/* Form
-  ––––––––––––––––––––––––––––––––– */
-label {
+.SignUpForm label {
   font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
-input[type="email"],
-input[type="text"],
-input[type="number"],
-input[type="password"] {
+.SignUpForm input[type="email"],
+.SignUpForm input[type="text"],
+.SignUpForm input[type="number"],
+.SignUpForm input[type="password"] {
   padding: 0.65rem 0.5rem;
   font-size: 1rem;
   border: 2px solid var(--gray-200);
@@ -195,38 +215,62 @@ input[type="password"] {
 }
 
 @media (prefers-color-scheme: dark) {
-  input[type="email"],
-  input[type="text"],
-  input[type="number"],
-  input[type="password"] {
+  .SignUpForm input[type="email"],
+  .SignUpForm input[type="text"],
+  .SignUpForm input[type="number"],
+  .SignUpForm input[type="password"] {
     background-color: var(--gray-800);
     border-color: var(--gray-700);
     color: white;
   }
-
-  input[type="email"]::placeholder,
-  input[type="text"]::placeholder,
-  input[type="number"]::placeholder,
-  input[type="password"]::placeholder,
-  select,
-  textarea {
+  .SignUpForm input[type="email"]::-webkit-input-placeholder,
+  .SignUpForm input[type="text"]::-webkit-input-placeholder,
+  .SignUpForm input[type="number"]::-webkit-input-placeholder,
+  .SignUpForm input[type="password"]::-webkit-input-placeholder,
+  .SignUpForm select,
+  .SignUpForm textarea {
+    color: var(--gray-500);
+  }
+  .SignUpForm input[type="email"]:-ms-input-placeholder,
+  .SignUpForm input[type="text"]:-ms-input-placeholder,
+  .SignUpForm input[type="number"]:-ms-input-placeholder,
+  .SignUpForm input[type="password"]:-ms-input-placeholder,
+  .SignUpForm select,
+  .SignUpForm textarea {
+    color: var(--gray-500);
+  }
+  .SignUpForm input[type="email"]::-ms-input-placeholder,
+  .SignUpForm input[type="text"]::-ms-input-placeholder,
+  .SignUpForm input[type="number"]::-ms-input-placeholder,
+  .SignUpForm input[type="password"]::-ms-input-placeholder,
+  .SignUpForm select,
+  .SignUpForm textarea {
+    color: var(--gray-500);
+  }
+  .SignUpForm input[type="email"]::placeholder,
+  .SignUpForm input[type="text"]::placeholder,
+  .SignUpForm input[type="number"]::placeholder,
+  .SignUpForm input[type="password"]::placeholder,
+  .SignUpForm select,
+  .SignUpForm textarea {
     color: var(--gray-500);
   }
 }
 
-input[type="email"],
-input[type="text"],
-input[type="number"],
-input[type="password"],
-textarea,
-select {
+.SignUpForm input[type="email"],
+.SignUpForm input[type="text"],
+.SignUpForm input[type="number"],
+.SignUpForm input[type="password"],
+.SignUpForm textarea,
+.SignUpForm select {
   width: 400px;
 }
 
-select {
+.SignUpForm select {
   margin: 0;
   -webkit-appearance: none;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0.65rem 0.5rem;
   font-size: 1rem;
   border: 2px solid var(--gray-200);
@@ -241,7 +285,7 @@ select {
 }
 
 @media (prefers-color-scheme: dark) {
-  select {
+  .SignUpForm select {
     background-color: var(--gray-800);
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.304 125.304"><path d="M62.652 103.895L0 21.41h125.304" fill="%23ffffff"/></svg>');
     border-color: var(--gray-700);
@@ -249,7 +293,7 @@ select {
   }
 }
 
-textarea {
+.SignUpForm textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -259,36 +303,36 @@ textarea {
   border-radius: 10px;
   resize: vertical;
   background-color: var(--gray-100);
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0.65rem 0.5rem;
-  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
-    "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
-  textarea {
+  .SignUpForm textarea {
     background-color: var(--gray-800);
     border-color: var(--gray-700);
     color: white;
   }
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+.SignUpForm input:focus,
+.SignUpForm select:focus,
+.SignUpForm textarea:focus {
   outline: none;
   border: 2px solid var(--focus-ring-color);
 }
 
-input:invalid,
-select:invalid,
-textarea:invalid {
+.SignUpForm input:invalid,
+.SignUpForm select:invalid,
+.SignUpForm textarea:invalid {
   border: 2px solid #ff7d87;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
-input[type="checkbox"] {
+.SignUpForm input[type="checkbox"] {
   display: inline-block;
   height: 1rem;
   font-size: 1rem;
@@ -299,42 +343,44 @@ input[type="checkbox"] {
   border: 2px solid var(--gray-300);
   width: 1rem;
   background-color: white;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   margin-right: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
-  input[type="checkbox"] {
+  .SignUpForm input[type="checkbox"] {
     background-color: var(--gray-800);
     border-color: var(--gray-600);
   }
 }
 
-input[type="checkbox"]:hover {
+.SignUpForm input[type="checkbox"]:hover {
   cursor: pointer;
 }
 
-input[type="checkbox"]:checked {
+.SignUpForm input[type="checkbox"]:checked {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="78.369" height="78.369" viewBox="0 0 78.369 78.369"><path fill="white" d="M78.05 19.015l-48.592 48.59c-.428.43-1.12.43-1.548 0L.32 40.016c-.427-.426-.427-1.12 0-1.547l6.704-6.704c.428-.427 1.12-.427 1.548 0l20.113 20.112 41.113-41.113c.43-.427 1.12-.427 1.548 0l6.703 6.704c.427.427.427 1.12 0 1.548z"/></svg>');
   background-size: contain;
   background-color: var(--gray-700);
   border: 2px solid var(--gray-700);
 }
 
-input[type="checkbox"]:focus-visible,
-input[type="checkbox"]:checked:focus-visible {
+.SignUpForm input[type="checkbox"]:focus-visible,
+.SignUpForm input[type="checkbox"]:checked:focus-visible {
   border-color: var(--focus-ring-color);
 }
 
 @media (prefers-color-scheme: dark) {
-  input[type="checkbox"]:checked {
+  .SignUpForm input[type="checkbox"]:checked {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="78.369" height="78.369" viewBox="0 0 78.369 78.369"><path fill="%23343434" d="M78.05 19.015l-48.592 48.59c-.428.43-1.12.43-1.548 0L.32 40.016c-.427-.426-.427-1.12 0-1.547l6.704-6.704c.428-.427 1.12-.427 1.548 0l20.113 20.112 41.113-41.113c.43-.427 1.12-.427 1.548 0l6.703 6.704c.427.427.427 1.12 0 1.548z"/></svg>');
     background-color: white;
     border: 2px solid white;
   }
 }
 
-input[type="radio"] {
+.SignUpForm input[type="radio"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -343,58 +389,65 @@ input[type="radio"] {
   height: 1rem;
   width: 1rem;
   margin-right: 0.5rem;
-  align-self: center;
-  justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 @media (prefers-color-scheme: dark) {
-  input[type="radio"] {
+  .SignUpForm input[type="radio"] {
     border: 2px solid white;
   }
 }
 
 @media (hover: hover) {
-  input[type="radio"]:hover {
+  .SignUpForm input[type="radio"]:hover {
     cursor: pointer;
   }
 }
 
-input[type="radio"]:checked {
+.SignUpForm input[type="radio"]:checked {
   border: 2px solid var(--gray-700);
 }
 
-input[type="radio"]:focus-visible,
-input[type="radio"]:checked:focus-visible {
+.SignUpForm input[type="radio"]:focus-visible,
+.SignUpForm input[type="radio"]:checked:focus-visible {
   border-color: var(--focus-ring-color);
 }
 
 @media (prefers-color-scheme: dark) {
-  input[type="radio"]:checked {
+  .SignUpForm input[type="radio"]:checked {
     border: 2px solid white;
   }
 }
 
-input[type="radio"]:checked::before {
+.SignUpForm input[type="radio"]:checked::before {
   content: "";
   width: calc(100% - 4px);
   height: calc(100% - 4px);
   background-color: var(--gray-700);
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   border-radius: 50%;
 }
 
 @media (prefers-color-scheme: dark) {
-  input[type="radio"]:checked::before {
+  .SignUpForm input[type="radio"]:checked::before {
     background-color: white;
   }
 }
 
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button {
+.SignUpForm input[type="submit"],
+.SignUpForm input[type="reset"],
+.SignUpForm input[type="button"],
+.SignUpForm button {
   padding: 0.5rem 1.25rem;
   font-size: 1rem;
   border-radius: 10px;
@@ -409,18 +462,22 @@ button {
   appearance: none;
   display: inline-block;
   line-height: initial;
-  transition: background-color 200ms ease-in-out, border 200ms ease-in-out,
-    transform 200ms ease-in-out;
+  -webkit-transition: background-color 200ms ease-in-out, border 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out, border 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out, border 200ms ease-in-out, transform 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out, border 200ms ease-in-out, transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  input[type="submit"],
-  input[type="reset"],
-  input[type="button"],
-  button {
+  .SignUpForm input[type="submit"],
+  .SignUpForm input[type="reset"],
+  .SignUpForm input[type="button"],
+  .SignUpForm button {
     background-color: white;
     border: 2px solid white;
     color: var(--gray-800);
@@ -428,49 +485,47 @@ button {
 }
 
 @media (hover: hover) {
-  input[type="submit"]:hover,
-  input[type="reset"]:hover,
-  input[type="button"]:hover,
-  button:hover {
+  .SignUpForm input[type="submit"]:hover,
+  .SignUpForm input[type="reset"]:hover,
+  .SignUpForm input[type="button"]:hover,
+  .SignUpForm button:hover {
     cursor: pointer;
     background-color: var(--gray-800);
   }
 }
 
 @media (hover: hover) and (prefers-color-scheme: dark) {
-  input[type="submit"]:hover,
-  input[type="reset"]:hover,
-  input[type="button"]:hover,
-  button:hover {
+  .SignUpForm input[type="submit"]:hover,
+  .SignUpForm input[type="reset"]:hover,
+  .SignUpForm input[type="button"]:hover,
+  .SignUpForm button:hover {
     cursor: pointer;
     background-color: var(--gray-300);
   }
 }
 
-button:focus-visible,
-input[type="submit"]:focus-visible,
-input[type="reset"]:focus-visible,
-input[type="button"]:focus-visible {
+.SignUpForm button:focus-visible,
+.SignUpForm input[type="submit"]:focus-visible,
+.SignUpForm input[type="reset"]:focus-visible,
+.SignUpForm input[type="button"]:focus-visible {
   border-color: var(--focus-ring-color);
   outline: none;
 }
 
-/* Tables
-  ––––––––––––––––––––––––––––––––– */
-table {
+.SignUpForm table {
   width: 100%;
   border-spacing: 0;
   margin-bottom: 1.563rem;
   font-variant-numeric: tabular-nums;
 }
 
-th,
-td {
+.SignUpForm th,
+.SignUpForm td {
   padding: 0.5rem 0.5rem 0.5rem 0;
   margin: 0;
 }
 
-th {
+.SignUpForm th {
   font-weight: bold;
   text-align: left;
   border-bottom: 2px solid var(--gray-300);
@@ -478,27 +533,24 @@ th {
 }
 
 @media (prefers-color-scheme: dark) {
-  th {
+  .SignUpForm th {
     border-color: var(--gray-700);
     color: var(--gray-700);
   }
 }
 
-td {
+.SignUpForm td {
   border-bottom: 2px solid var(--gray-300);
 }
 
 @media (prefers-color-scheme: dark) {
-  td {
+  .SignUpForm td {
     border-color: var(--gray-700);
   }
 }
 
-/* Code
-  ––––––––––––––––––––––––––––––––– */
-code {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
-    monospace;
+.SignUpForm code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 0.8rem;
   white-space: nowrap;
   background: var(--gray-100);
@@ -509,16 +561,16 @@ code {
 }
 
 @media (prefers-color-scheme: dark) {
-  code {
+  .SignUpForm code {
     background-color: var(--gray-700);
   }
 }
 
-p > code {
+.SignUpForm p > code {
   white-space: normal;
 }
 
-pre > code {
+.SignUpForm pre > code {
   line-height: 1.563em;
   display: block;
   padding: 1rem;
@@ -527,56 +579,48 @@ pre > code {
   overflow: scroll;
 }
 
-/* Forces a new-line at the end of a code block for layout purposes. */
-pre > code::after {
+.SignUpForm pre > code::after {
   content: " ";
 }
 
-/* Blockquote
-  ––––––––––––––––––––––––––––––––– */
-blockquote {
+.SignUpForm blockquote {
   border-left: 0.25rem solid var(--gray-100);
   padding: 0 1rem;
   margin-bottom: 1.563rem;
 }
 
 @media (prefers-color-scheme: dark) {
-  blockquote {
+  .SignUpForm blockquote {
     border-left: 0.25rem solid var(--gray-700);
   }
 }
 
-/* List
-  ––––––––––––––––––––––––––––––––– */
-ul {
+.SignUpForm ul {
   margin: 0;
   padding: 0 1px;
   list-style: disc outside;
   font-variant-numeric: tabular-nums;
 }
 
-ol {
+.SignUpForm ol {
   list-style: decimal outside;
 }
 
-ol,
-ul {
+.SignUpForm ol,
+.SignUpForm ul {
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 1.563rem;
 }
 
-li {
+.SignUpForm li {
   list-style-position: inside;
 }
 
-/* Keyboard
-  ––––––––––––––––––––––––––––––––– */
-kbd {
+.SignUpForm kbd {
   display: inline-block;
   padding: 0 0.328rem;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
-    monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 0.64rem;
   color: var(--gray-700);
   vertical-align: middle;
@@ -586,69 +630,66 @@ kbd {
   border-radius: 5px;
 }
 
-/* Abbreviation
-  ––––––––––––––––––––––––––––––––– */
-abbr {
+.SignUpForm abbr {
   text-decoration: none;
   border-bottom: 2px dashed var(--gray-600);
 }
 
 @media (hover: hover) {
-  abbr:hover {
+  .SignUpForm abbr:hover {
     cursor: help;
   }
 }
 
-.error {
+.SignUpForm .error {
   font-size: 12px;
   color: var(--red-600);
   margin-top: 0.25rem;
 }
 
 @media (prefers-color-scheme: dark) {
-  .error {
+  .SignUpForm .error {
     color: var(--red-400);
   }
 }
 
-button:disabled {
+.SignUpForm button:disabled {
   opacity: 0.5;
   cursor: not-allowed !important;
 }
 
-button + button {
+.SignUpForm button + button {
   margin-left: 0.5rem;
 }
 
-button.secondary,
-button[type="reset"] {
+.SignUpForm button.secondary,
+.SignUpForm button[type="reset"] {
   background-color: var(--gray-300);
   border: 2px solid var(--gray-300);
   color: var(--gray-900);
 }
 
-button.secondary:hover,
-button[type="reset"]:hover {
+.SignUpForm button.secondary:hover,
+.SignUpForm button[type="reset"]:hover {
   background-color: var(--gray-400);
 }
 
-/* custom */
-input[type="email"],
-input[type="text"],
-input[type="number"],
-textarea,
-select {
+.SignUpForm input[type="email"],
+.SignUpForm input[type="text"],
+.SignUpForm input[type="number"],
+.SignUpForm textarea,
+.SignUpForm select {
   width: 400px;
 }
 
-label {
+.SignUpForm label {
   margin-top: 1rem;
 }
 
-label.checkbox {
+.SignUpForm label.checkbox {
   font-weight: normal;
 }
 
-button[type="submit"] {
+.SignUpForm button[type="submit"] {
   margin-top: 1rem;
 }

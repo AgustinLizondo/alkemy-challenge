@@ -1,0 +1,93 @@
+.superHerosHomePage {
+  header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: space-around;
+    h1 {
+      text-align: center;
+      margin: 1rem 0;
+    }
+    svg {
+      justify-self: right;
+      margin: 1rem;
+    }
+    form input{
+      border: none;
+      border-bottom: 2px solid #333;
+      background: transparent;
+      padding: .5rem;
+      font-size: 1rem;
+      outline: none;
+      margin: .5rem auto;
+    }
+  }
+  .tableTeam,
+  .heroResults {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 3rem repeat(2, 1fr);
+    padding: 0.5rem;
+    h3 {
+      grid-column: span 3;
+      justify-self: center;
+    }
+    h2 {
+      text-align: center;
+      align-self: center;
+      grid-column: span 3;
+    }
+    .teamHero,
+    .hero {
+      margin: 0 auto;
+      width: 30vw;
+      height: 25vh;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 2rem repeat(2, 1fr);
+      margin-bottom: 2rem;
+      h3 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+      }
+      img {
+        grid-column: span 2;
+        justify-self: center;
+        max-width: 30vw;
+        max-height: 30vh;
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem;
+      }
+      .teamButtons,
+      .heroButtons {
+        display: inline-block;
+        grid-column: span 1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        width: 200%;
+        background: #222;
+        align-items: center;
+        border-bottom-left-radius: 0.75rem;
+        border-bottom-right-radius: 0.75rem;
+        .icon {
+          grid-column-start: 1;
+          grid-column-end: 2;
+        }
+        .iconNd {
+          grid-column-start: 2;
+          grid-column-end: 3;
+        }
+        .icon,
+        .iconNd {
+          margin: 0 auto;
+          padding: 0.1rem;
+        }
+      }
+    }
+  }
+}

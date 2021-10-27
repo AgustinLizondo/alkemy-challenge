@@ -14,7 +14,7 @@ const validate = (values) => {
     }
     if (!values.password) {
         errors.password = 'Field required';
-    }else if(values.password !== 'react'){
+    } else if (values.password !== 'react') {
         errors.password = 'Incorrect password'
     }
 

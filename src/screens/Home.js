@@ -6,7 +6,7 @@ const Home = () => {
     const [logged, setLogged] = useState(false)
     return (
         <div>
-            {!logged
+            {!logged && !localStorage.getItem('token')
                 ? <SignupForm setter={() => setLogged(true)} />
                 : <HomePage />
             }
