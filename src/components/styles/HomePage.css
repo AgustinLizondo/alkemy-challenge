@@ -45,7 +45,6 @@
 
 .superHerosHomePage .tableTeam h3,
 .superHerosHomePage .heroResults h3 {
-  grid-column: span 3;
   -ms-grid-column-align: center;
       justify-self: center;
 }

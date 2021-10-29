@@ -11,18 +11,24 @@ const HomePage = () => {
     }, 900000);
     const [goodOnes, setGoodOnes] = useState([]);
     const [badOnes, setBadOnes] = useState([]);
-    const [team, setTeam] = useState(goodOnes.concat(badOnes));
+    const [neutralOnes, setNeutralOnes] = useState([]);
     const [heros, setHeros] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('robin');
+    const [searchTerm, setSearchTerm] = useState('bat');
     // const [reload, setReload] = useState(true);
 
     const TeamHero = ({ name, image, setTeamGroup }) => {
 
         const removeTeam = (heroToRemove) => {
-            setTeam(team.filter((hero) => hero !== heroToRemove));
-            // setHeros(heros.push(heroToRemove));
-            // setReload(!reload);
+            if (heroToRemove.goodness === 'good') {
+                setGoodOnes(goodOnes.filter((hero) => hero !== heroToRemove));
+            } else if (heroToRemove.goodness === 'bad') {
+                setBadOnes(badOnes.filter((hero) => hero !== heroToRemove));
+            } else {
+                setNeutralOnes(neutralOnes.filter((hero) => hero !== heroToRemove));
+            }
         }
+        // setHeros(heros.push(heroToRemove));
+        // setReload(!reload);
 
         return (
             <div className='teamHero'>
@@ -35,29 +41,22 @@ const HomePage = () => {
             </div>
         )
     }
+
     const Hero = ({ name, image, setTeamGroup }) => {
 
         const addTeam = (hero) => {
-            if (team.length < 6) {
-                if (!team.includes(hero)) {
-                    console.log(goodOnes.length);
-                    console.log(badOnes.length);
-                    console.log(hero.goodness)
-                    if (goodOnes.length < 3) {
-                        if (hero.goodness === 'good') {
-                            setGoodOnes((actualGoodOnes) => [...actualGoodOnes, hero]);
-                        } else if (hero.goodness === 'bad') {
-                            setBadOnes((actualBadOnes) => [...actualBadOnes, hero]);
-                        }
-                        alert(`You can not add more than three ${hero.goodness} heros`)
-
-                        // setHeros(heros.filter((elementTeamHero) => elementTeamHero !== hero));
-                    } else {
-                        alert('You can not add the same hero twice')
-                    }
+            if ((goodOnes.length + badOnes.length + neutralOnes.length) < 6 && (goodOnes.length < 3 || badOnes.length < 3 || neutralOnes.length < 3)) {
+                if (!goodOnes.includes(hero) && hero.goodness === 'good' && goodOnes.length < 3) {
+                    setGoodOnes((actualGoodOnes) => [...actualGoodOnes, hero]);
+                } else if (!badOnes.includes(hero) && hero.goodness === 'bad' && badOnes.length < 3) {
+                    setBadOnes((actualBadOnes) => [...actualBadOnes, hero]);
+                } else if (!neutralOnes.includes(hero) && hero.goodness === 'neutral' && neutralOnes.length < 3) {
+                    setNeutralOnes((actualNeutralOnes) => [...actualNeutralOnes, hero]);
                 } else {
-                    alert('You can not add more than six heros to your team');
+                    alert(`You can not add more than three ${hero.goodness} heros or you are trying to add the same hero twice`)
                 }
+            } else {
+                alert('You can not add more than six heros to your team');
             }
         }
         return (
@@ -71,48 +70,50 @@ const HomePage = () => {
             </div>
         )
     }
-    useEffect(() => {
-        async function getHero() {
-            try {
-                const response = await axios.get(`https://superheroapi.com/api/885656872344300/search/${searchTerm}`, {
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                        'Vary': 'Origin',
-                    },
-                }),
-                    json = response.data.results;
-                json.forEach(async (el) => {
-                    let hero = {
-                        id: el.id,
-                        name: el.name,
-                        image: el.image,
-                        goodness: el.biography.alignment,
-                        stats: {
-                            intelligence: el.powerstats.intelligence,
-                            strength: el.powerstats.strength,
-                            speed: el.powerstats.speed,
-                            durability: el.powerstats.durability,
-                            power: el.powerstats.power,
-                            combat: el.powerstats.combat
-                        },
-                        details: {
-                            weight: el.appearance.weight,
-                            height: el.appearance.height,
-                            fullname: el.biography[0],
-                            aliases: el.aliases,
-                            eyesColor: el.appearance[4],
-                            hairColor: el.appearance[5],
-                            workingPlace: el.work.base,
-                        },
-                    };
-                    setHeros((herosArr) => [...herosArr, hero]);
-                })
-            } catch (err) {
-                console.log(err)
-            }
+    async function getHero(searchingTerm) {
+        try {
+            const data = await axios.get(`https://superheroapi.com/api/885656872344300/search/${searchingTerm}`, {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Vary': 'Origin',
+                }
+            });
+            setHeros(data.data.results)
+        } catch (err) {
+            console.log(err)
         }
-        getHero();
+    }
+    useEffect(() => {
+        getHero(searchTerm);
     }, [searchTerm]);
+
+
+    // heros.forEach(async (el) => {
+    //     let hero = {
+    //         id: el.id,
+    //         name: el.name,
+    //         image: el.image,
+    //         goodness: el.biography.alignment,
+    //         stats: {
+    //             intelligence: el.powerstats.intelligence,
+    //             strength: el.powerstats.strength,
+    //             speed: el.powerstats.speed,
+    //             durability: el.powerstats.durability,
+    //             power: el.powerstats.power,
+    //             combat: el.powerstats.combat
+    //         },
+    //         details: {
+    //             weight: el.appearance.weight,
+    //             height: el.appearance.height,
+    //             fullname: el.biography[0],
+    //             aliases: el.aliases,
+    //             eyesColor: el.appearance[4],
+    //             hairColor: el.appearance[5],
+    //             workingPlace: el.work.base,
+    //         },
+    //     };
+    //     setHeros((herosArr) => [...herosArr, hero]);
+    // })
 
     const Header = () => {
         const [searchingBar, setSearchingBar] = useState(true);
@@ -137,11 +138,31 @@ const HomePage = () => {
             <Header />
             <div className='tableTeam'>
                 <h2>Team</h2>
-                {team.length > 0
-                    ? (team.map((el) => (
+                {goodOnes.length > 0
+
+                    ? (goodOnes.map((el) => (
                         <TeamHero key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
                     )))
-                    : (<h3>Your team is empty</h3>)
+                    // : (<h3 className='goodTeam'>Your good team is empty</h3>)
+                    : null
+                }
+
+                {badOnes.length > 0
+
+                    ? (badOnes.map((el) => (
+                        <TeamHero key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
+                    )))
+                    // : (<h3 className='badTeam'>Your bad team is empty</h3>)
+                    : null
+                }
+
+                {neutralOnes.length > 0
+
+                    ? (neutralOnes.map((el) => (
+                        <TeamHero key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
+                    )))
+                    // : (<h3 className='badTeam'>Your bad team is empty</h3>)
+                    : null
                 }
             </div>
             <div className='heroResults'>
