@@ -46,14 +46,14 @@ const HomePage = () => {
 
         const addTeam = (hero) => {
             if ((goodOnes.length + badOnes.length + neutralOnes.length) < 6 && (goodOnes.length < 3 || badOnes.length < 3 || neutralOnes.length < 3)) {
-                if (!goodOnes.includes(hero) && hero.goodness === 'good' && goodOnes.length < 3) {
+                if (!goodOnes.includes(hero) && hero.biography.alignment === 'good' && goodOnes.length < 3) {
                     setGoodOnes((actualGoodOnes) => [...actualGoodOnes, hero]);
                 } else if (!badOnes.includes(hero) && hero.goodness === 'bad' && badOnes.length < 3) {
                     setBadOnes((actualBadOnes) => [...actualBadOnes, hero]);
-                } else if (!neutralOnes.includes(hero) && hero.goodness === 'neutral' && neutralOnes.length < 3) {
+                } else if (!neutralOnes.includes(hero) && hero.biography.alignment === 'neutral' && neutralOnes.length < 3) {
                     setNeutralOnes((actualNeutralOnes) => [...actualNeutralOnes, hero]);
                 } else {
-                    alert(`You can not add more than three ${hero.goodness} heros or you are trying to add the same hero twice`)
+                    alert(`You can not add more than three ${hero.biography.alignment} heros or you are trying to add the same hero twice`)
                 }
             } else {
                 alert('You can not add more than six heros to your team');
@@ -72,12 +72,7 @@ const HomePage = () => {
     }
     async function getHero(searchingTerm) {
         try {
-            const data = await axios.get(`https://superheroapi.com/api/885656872344300/search/${searchingTerm}`, {
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Vary': 'Origin',
-                }
-            });
+            const data = await axios.get(`https://superheroapi.com/api/885656872344300/search/${searchingTerm}`);
             setHeros(data.data.results)
         } catch (err) {
             console.log(err)
@@ -125,7 +120,7 @@ const HomePage = () => {
                 {searchingBar
                     ? (
                         <form>
-                            <input onChange={(evt) => { setSearchTerm(evt.target.value) }} className='inputHero' placeholder='For example: Batman' />
+                            <input onChange={(evt) => { getHero(evt.target.value) }} className='inputHero' placeholder='For example: Batman' />
                         </form>)
                     : (null)
                 }
@@ -138,31 +133,47 @@ const HomePage = () => {
             <Header />
             <div className='tableTeam'>
                 <h2>Team</h2>
-                {goodOnes.length > 0
+
+                {/* {goodOnes.length > 0
 
                     ? (goodOnes.map((el) => (
                         <TeamHero key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
                     )))
                     // : (<h3 className='goodTeam'>Your good team is empty</h3>)
                     : null
-                }
-
-                {badOnes.length > 0
-
-                    ? (badOnes.map((el) => (
+                } */}
+                {
+                    (goodOnes.map((el) => (
                         <TeamHero key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
                     )))
-                    // : (<h3 className='badTeam'>Your bad team is empty</h3>)
-                    : null
                 }
+                {/* {badOnes.length > 0
 
-                {neutralOnes.length > 0
+                    ? (badOnes.map((el) => (
+                        < TeamHero key = { el.id } id = { el.id } name = { el.name } image = { el.image } setTeamGroup = { el } />
+                    )))
+                    // : (<h3 className='badTeam'>Your bad team is empty</h3>)
+                : null
+                } */}
+                {
+                    (badOnes.map((el) => (
+                        < TeamHero key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
+                    )))
+                }
+                {/* {neutralOnes.length > 0
 
                     ? (neutralOnes.map((el) => (
                         <TeamHero key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
                     )))
                     // : (<h3 className='badTeam'>Your bad team is empty</h3>)
                     : null
+                } */}
+                {
+                    (neutralOnes.map((el) => (
+                        el.image.url
+                            ? <TeamHero key={el.id} id={el.id} name={el.name} image={el.image.url} setTeamGroup={el} />
+                            : null
+                        )))
                 }
             </div>
             <div className='heroResults'>
