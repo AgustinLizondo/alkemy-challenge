@@ -1,3 +1,24 @@
+* ::-webkit-scrollbar {
+  width: 10px;
+}
+
+* ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+* ::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
+* ::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.superHerosHomePage {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 .superHerosHomePage header {
   display: -ms-grid;
   display: grid;
@@ -25,10 +46,10 @@
   border: none;
   border-bottom: 2px solid #333;
   background: transparent;
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 1rem;
   outline: none;
-  margin: .5rem auto;
+  margin: 0.5rem auto;
 }
 
 .superHerosHomePage .tableTeam,
@@ -116,6 +137,7 @@
   -ms-grid-rows: 1fr;
       grid-template-rows: 1fr;
   width: 200%;
+  max-height: 2rem;
   background: #222;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -168,4 +190,200 @@
 .superHerosHomePage .heroResults .hero .heroButtons .iconNd {
   margin: 0 auto;
   padding: 0.1rem;
+}
+
+.superHerosHomePage .tableTeam .bad,
+.superHerosHomePage .heroResults .bad {
+  color: red;
+}
+
+.superHerosHomePage .tableTeam .good,
+.superHerosHomePage .heroResults .good {
+  color: green;
+}
+
+.superHerosHomePage .tableTeam .neutral,
+.superHerosHomePage .heroResults .neutral {
+  color: gray;
+}
+
+.superHerosHomePage .tableTeam .titleTeam {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(100vw - 1rem);
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.superHerosHomePage .tableTeam .titleTeam h2 {
+  display: inline-block;
+}
+
+.teamInfo {
+  position: absolute;
+  margin: 0 auto;
+  background: #333;
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  border-bottom: 4px solid #999;
+  border-right: 4px solid #999;
+}
+
+.teamInfo .closeTab {
+  border-top: 2px solid #999;
+  border-left: 2px solid #999;
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0.5rem;
+}
+
+.heroInfo {
+  position: absolute;
+  margin: 0 auto;
+  background: #333;
+  color: white;
+  padding: .5rem;
+  border-radius: 1rem;
+  border-bottom: 4px solid #999;
+  border-right: 4px solid #999;
+}
+
+@media screen and (min-width: 768px) {
+  .superHerosHomePage .tableTeam,
+  .superHerosHomePage .heroResults {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[5];
+        grid-template-columns: repeat(5, 1fr);
+    -ms-grid-rows: 3rem (1fr)[2];
+        grid-template-rows: 3rem repeat(2, 1fr);
+  }
+  .superHerosHomePage .tableTeam .titleTeam,
+  .superHerosHomePage .heroResults .titleTeam {
+    grid-column: span 5;
+  }
+  .superHerosHomePage .tableTeam h2,
+  .superHerosHomePage .heroResults h2 {
+    grid-column: span 5;
+  }
+  .superHerosHomePage .tableTeam .teamHero,
+  .superHerosHomePage .tableTeam .hero,
+  .superHerosHomePage .heroResults .teamHero,
+  .superHerosHomePage .heroResults .hero {
+    padding: 0.5rem;
+    width: 20vw;
+    height: 40vh;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: 2rem (1fr)[2];
+        grid-template-rows: 2rem repeat(2, 1fr);
+    margin-bottom: 2rem;
+  }
+  .superHerosHomePage .tableTeam .teamHero h3,
+  .superHerosHomePage .tableTeam .hero h3,
+  .superHerosHomePage .heroResults .teamHero h3,
+  .superHerosHomePage .heroResults .hero h3 {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  .superHerosHomePage .tableTeam .teamHero img,
+  .superHerosHomePage .tableTeam .hero img,
+  .superHerosHomePage .heroResults .teamHero img,
+  .superHerosHomePage .heroResults .hero img {
+    grid-column: span 2;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    max-width: 30vw;
+    max-height: 30vh;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
+  .superHerosHomePage .tableTeam .teamHero .teamButtons,
+  .superHerosHomePage .tableTeam .teamHero .heroButtons,
+  .superHerosHomePage .tableTeam .hero .teamButtons,
+  .superHerosHomePage .tableTeam .hero .heroButtons,
+  .superHerosHomePage .heroResults .teamHero .teamButtons,
+  .superHerosHomePage .heroResults .teamHero .heroButtons,
+  .superHerosHomePage .heroResults .hero .teamButtons,
+  .superHerosHomePage .heroResults .hero .heroButtons {
+    display: inline-block;
+    grid-column: span 1;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+    width: 200%;
+    height: 4rem;
+    background: #222;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  }
+  .superHerosHomePage .tableTeam .teamHero .teamButtons .icon,
+  .superHerosHomePage .tableTeam .teamHero .heroButtons .icon,
+  .superHerosHomePage .tableTeam .hero .teamButtons .icon,
+  .superHerosHomePage .tableTeam .hero .heroButtons .icon,
+  .superHerosHomePage .heroResults .teamHero .teamButtons .icon,
+  .superHerosHomePage .heroResults .teamHero .heroButtons .icon,
+  .superHerosHomePage .heroResults .hero .teamButtons .icon,
+  .superHerosHomePage .heroResults .hero .heroButtons .icon {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .superHerosHomePage .tableTeam .teamHero .teamButtons .iconNd,
+  .superHerosHomePage .tableTeam .teamHero .heroButtons .iconNd,
+  .superHerosHomePage .tableTeam .hero .teamButtons .iconNd,
+  .superHerosHomePage .tableTeam .hero .heroButtons .iconNd,
+  .superHerosHomePage .heroResults .teamHero .teamButtons .iconNd,
+  .superHerosHomePage .heroResults .teamHero .heroButtons .iconNd,
+  .superHerosHomePage .heroResults .hero .teamButtons .iconNd,
+  .superHerosHomePage .heroResults .hero .heroButtons .iconNd {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    grid-column-end: 3;
+  }
+  .superHerosHomePage .tableTeam .teamHero .teamButtons .icon,
+  .superHerosHomePage .tableTeam .teamHero .teamButtons .iconNd,
+  .superHerosHomePage .tableTeam .teamHero .heroButtons .icon,
+  .superHerosHomePage .tableTeam .teamHero .heroButtons .iconNd,
+  .superHerosHomePage .tableTeam .hero .teamButtons .icon,
+  .superHerosHomePage .tableTeam .hero .teamButtons .iconNd,
+  .superHerosHomePage .tableTeam .hero .heroButtons .icon,
+  .superHerosHomePage .tableTeam .hero .heroButtons .iconNd,
+  .superHerosHomePage .heroResults .teamHero .teamButtons .icon,
+  .superHerosHomePage .heroResults .teamHero .teamButtons .iconNd,
+  .superHerosHomePage .heroResults .teamHero .heroButtons .icon,
+  .superHerosHomePage .heroResults .teamHero .heroButtons .iconNd,
+  .superHerosHomePage .heroResults .hero .teamButtons .icon,
+  .superHerosHomePage .heroResults .hero .teamButtons .iconNd,
+  .superHerosHomePage .heroResults .hero .heroButtons .icon,
+  .superHerosHomePage .heroResults .hero .heroButtons .iconNd {
+    margin: 0 auto;
+    padding: 0.1rem;
+  }
 }
