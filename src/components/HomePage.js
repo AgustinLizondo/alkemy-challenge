@@ -218,19 +218,25 @@ const HomePage = () => {
                 </div>
                 {
                     (goodOnes.map((el) => (
-                        <TeamHero alignment={el.biography.alignment} key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
+                        <div>
+                            <TeamHero alignment={el.biography.alignment} key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
+                        </div>
                     )))
                 }
 
                 {
                     (badOnes.map((el) => (
-                        <TeamHero alignment={el.biography.alignment} key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
+                        <div>
+                            <TeamHero alignment={el.biography.alignment} key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
+                        </div>
                     )))
                 }
 
                 {
                     (neutralOnes.map((el) => (
-                        <TeamHero alignment={el.biography.alignment} key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
+                        <div>
+                            <TeamHero alignment={el.biography.alignment} key={el.id} id={el.id} name={el.name} image={el.image} setTeamGroup={el} />
+                        </div>
                     )))
                 }
             </div>
